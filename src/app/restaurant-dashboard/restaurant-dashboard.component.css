@@ -24,6 +24,10 @@ body {
   overflow-x: hidden;
 }
 
+#loginId{
+  background-color: #0c9df1;
+  color: white;
+}
 .section {
   width: 100%;
   padding: 40px 0;
