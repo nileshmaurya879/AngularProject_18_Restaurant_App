@@ -23,7 +23,6 @@ export class LoginComponent {
     );
   }
   Userlogin(){
-
-    console.log(this.loginform.value.email)
+    console.log(this.loginform.value)
   }
 }

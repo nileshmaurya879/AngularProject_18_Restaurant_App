@@ -575,3 +575,7 @@ details[open] summary ~ * {
 .youtube p {
   font-size: 22px;
 }
+
+.navbackGroundColor{
+  background-color: #000;
+}
