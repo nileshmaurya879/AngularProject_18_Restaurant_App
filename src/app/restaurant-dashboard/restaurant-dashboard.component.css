@@ -25,8 +25,8 @@ body {
 }
 
 #loginId{
-  background-color: #0c9df1;
-  color: white;
+  background-color: #f1ed0c;
+  color: rgb(7, 7, 7);
 }
 .section {
   width: 100%;
@@ -90,6 +90,7 @@ label.logo {
   line-height: 80px;
   padding: 0 30px;
   font-weight: 700;
+  color: #f5f0f0;
 }
 
 nav ul {
