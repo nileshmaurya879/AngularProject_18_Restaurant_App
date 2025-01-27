@@ -6,6 +6,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { MenuCardComponent } from './menu-card/menu-card.component';
 import { ChartsDashboardComponent } from './charts-dashboard/charts-dashboard.component';
 import { RestaurantDashboardComponent } from './restaurant-dashboard/restaurant-dashboard.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 export const routes: Routes = [
 
@@ -36,5 +37,9 @@ export const routes: Routes = [
    {
         path:"chart",
         component:ChartsDashboardComponent
+   },
+   {
+     path:"forgotpassword",
+     component:ForgotPasswordComponent
    }
 ];
