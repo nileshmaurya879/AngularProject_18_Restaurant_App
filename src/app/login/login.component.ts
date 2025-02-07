@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -14,9 +14,9 @@ import { RestaurantAppServiceService } from '../Services/restaurant-app-service.
 })
 export class LoginComponent {
   loginform:FormGroup;
-  http = inject(HttpClient);
+  //http = inject(HttpClient);
 
-  constructor(private fb:FormBuilder, private resAppService:RestaurantAppServiceService){
+  constructor(private fb:FormBuilder, private resAppService : RestaurantAppServiceService){
     this.loginform = this.fb.group(
       {
           email: "",
@@ -27,6 +27,6 @@ export class LoginComponent {
   }
   Userlogin(){
     console.log(this.loginform.value)
-    this.resAppService.checkLoginUser(this.Userlogin)
+    ///this.resAppService.checkLoginUser(this.Userlogin)
   }
 }
