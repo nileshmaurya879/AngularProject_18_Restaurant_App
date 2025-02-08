@@ -14,7 +14,7 @@ import { RestaurantAppServiceService } from '../Services/restaurant-app-service.
 })
 export class LoginComponent {
   loginform:FormGroup;
-  //http = inject(HttpClient);
+
 
   constructor(private fb:FormBuilder, private resAppService : RestaurantAppServiceService){
     this.loginform = this.fb.group(
@@ -27,6 +27,8 @@ export class LoginComponent {
   }
   Userlogin(){
     console.log(this.loginform.value)
-    ///this.resAppService.checkLoginUser(this.Userlogin)
+    this.resAppService.checkLoginUser(this.Userlogin).subscribe((res:any)=>{
+      console.log(res);
+    })
   }
 }

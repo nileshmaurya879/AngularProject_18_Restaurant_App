@@ -1,14 +1,16 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestaurantAppServiceService {
-  http = Inject(HttpClient)
-  constructor() { }
+  constructor(private http:HttpClient) { 
+
+  }
 
   checkLoginUser(Userlogin:any){
-    return this.http.post("https://localhost:44323/api/UserRegistration/GetUserLogin",Userlogin)
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post("https://localhost:44323/api/UserRegistration/GetUserLogin", JSON.stringify(Userlogin.value), { headers })
   }
 }
