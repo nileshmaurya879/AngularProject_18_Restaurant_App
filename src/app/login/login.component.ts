@@ -27,7 +27,7 @@ export class LoginComponent {
   }
   Userlogin(){
     console.log(this.loginform.value)
-    this.resAppService.checkLoginUser(this.Userlogin).subscribe((res:any)=>{
+    this.resAppService.checkLoginUser(this.loginform.value).subscribe((res:any)=>{
       console.log(res);
     })
   }
