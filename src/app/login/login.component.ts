@@ -28,8 +28,13 @@ export class LoginComponent {
     console.log(this.loginform.value)
     this.resAppService.checkLoginUser(this.loginform.value).subscribe((res:any)=>{
       console.log(res);
-      localStorage.setItem("LoginUserEmail",res[0]?.email)
-      this.router.navigateByUrl("/")
+      if(res[0]?.email != null){
+        localStorage.setItem("LoginUserEmail",res[0]?.email)
+        this.router.navigateByUrl("/")
+      }else{
+        alert("Login Fail! Enter valid userName Or Password Or Please Sinup..")
+      }
+
     })
   }
 }
