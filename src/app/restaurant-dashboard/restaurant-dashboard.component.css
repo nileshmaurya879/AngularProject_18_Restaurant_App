@@ -28,6 +28,10 @@ body {
   background-color: #f1ed0c;
   color: rgb(7, 7, 7);
 }
+#loginIdlogut{
+  background-color: #fe5722;
+  color: rgb(20, 19, 19);
+}
 .section {
   width: 100%;
   padding: 40px 0;
