@@ -9,5 +9,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './restaurant-dashboard.component.css'
 })
 export class RestaurantDashboardComponent {
-
+  loginUserEmail:string = "";
+  
+  constructor(){
+    var loginUser =  localStorage.getItem("LoginUserEmail")
+    this.loginUserEmail = loginUser ? loginUser : "";
+    console.log(loginUser)
+    console.log(this.loginUserEmail)
+  }
 }
