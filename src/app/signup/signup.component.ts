@@ -22,6 +22,7 @@ export class SignupComponent {
     )
   }
   UserSignUp(){
-
+    console.log(this.signupform.value)
+    console.log("************")
   }
 }
