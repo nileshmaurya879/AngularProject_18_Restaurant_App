@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { RestaurantAppServiceService } from '../Services/restaurant-app-service.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,17 +13,21 @@ import { RouterModule } from '@angular/router';
 })
 export class SignupComponent {
   signupform:FormGroup;
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder, private restaurantAppService: RestaurantAppServiceService, private router:Router){
     this.signupform = this.fb.group (
       {
         UserName:"",
-        email:"",
-        password:""
+        Email:"",
+        UserPassword:""
       }
     )
   }
   UserSignUp(){
     console.log(this.signupform.value)
     console.log("************")
+    this.restaurantAppService.CreateUserRegistration(this.signupform.value).subscribe((res:any)=>{
+          alert("Added successfully...")
+          this.router.navigateByUrl("/login");
+    });
   }
 }
