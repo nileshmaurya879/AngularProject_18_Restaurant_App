@@ -7,7 +7,8 @@ import { MenuCardComponent } from './menu-card/menu-card.component';
 import { ChartsDashboardComponent } from './charts-dashboard/charts-dashboard.component';
 import { RestaurantDashboardComponent } from './restaurant-dashboard/restaurant-dashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { RestaurantMemberStaffComponent } from './restaurant-member-staff/restaurant-member-staff.component';
+import { RestaurantHomePageComponent } from './restaurant-home-page/restaurant-home-page.component';
+
 
 export const routes: Routes = [
 
@@ -44,7 +45,7 @@ export const routes: Routes = [
      component:ForgotPasswordComponent
    },
    {
-     path:"RestaurantMemberStaff",
-     component:RestaurantMemberStaffComponent
+     path:"Dashboard",
+     component:RestaurantHomePageComponent
    }
 ];

@@ -30,7 +30,7 @@ export class LoginComponent {
       console.log(res);
       if(res[0]?.email != null){
         localStorage.setItem("LoginUserEmail",res[0]?.email)
-        this.router.navigateByUrl("/RestaurantMemberStaff")
+        this.router.navigateByUrl("/Dashboard")
       }else{
         alert("Login Fail! Enter valid userName Or Password Or Please Sinup..")
       }
