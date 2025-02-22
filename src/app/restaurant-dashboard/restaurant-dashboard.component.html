@@ -40,40 +40,45 @@
   </div>
   <!-- End Menu -->
 
-
-  @if(loginUserEmail != ""){
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-        </tr>
-      </tbody>
-    </table>
-  }@else
+  @if(loginUserEmail != "")
+  {
+    <div class="section flex" id="hero-section">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  }
+  @else
   {
 
   <!-- Hero Section -->
   <div class="section flex" id="hero-section">
     <div class="text">
+
+      
       <h1 class="primary">
         It's Not Just Food, <br />
         It's an <span>Experience</span>
