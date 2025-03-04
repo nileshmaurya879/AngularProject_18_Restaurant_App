@@ -17,4 +17,7 @@ export class RestaurantDashboardComponent {
     console.log(loginUser)
     console.log(this.loginUserEmail)
   }
+  OpenStaffMemberModel() : void{
+    $('#addMemberModal').modal('show');
+  }
 }
