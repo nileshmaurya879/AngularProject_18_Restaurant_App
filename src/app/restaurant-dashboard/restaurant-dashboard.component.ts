@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AddStaffMemberComponent } from '../add-staff-member/add-staff-member.component';
+import { RestaurantAppServiceService } from '../Services/restaurant-app-service.service';
 
 @Component({
   selector: 'app-restaurant-dashboard',
@@ -10,14 +12,21 @@ import { RouterLink } from '@angular/router';
 })
 export class RestaurantDashboardComponent {
   loginUserEmail:string = "";
-  
-  constructor(){
+  staffMemebr:any
+
+  constructor(protected ResService: RestaurantAppServiceService){
     var loginUser =  localStorage.getItem("LoginUserEmail")
     this.loginUserEmail = loginUser ? loginUser : "";
     console.log(loginUser)
     console.log(this.loginUserEmail)
+
+    ResService.GetAllStaffMember().subscribe((res:any)=>{
+      this.staffMemebr = res;
+      console.log(res)
+    })
   }
-  OpenStaffMemberModel() : void{
-    $('#addMemberModal').modal('show');
+  
+  OpenStaffMemberModel() {
+    
   }
 }

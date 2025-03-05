@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './add-staff-member.component.css'
 })
 export class AddStaffMemberComponent {
+  isOpen: boolean = false;
 
+ 
 }
