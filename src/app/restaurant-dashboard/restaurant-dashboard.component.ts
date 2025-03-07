@@ -6,14 +6,14 @@ import { RestaurantAppServiceService } from '../Services/restaurant-app-service.
 @Component({
   selector: 'app-restaurant-dashboard',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, AddStaffMemberComponent],
   templateUrl: './restaurant-dashboard.component.html',
   styleUrl: './restaurant-dashboard.component.css'
 })
 export class RestaurantDashboardComponent {
   loginUserEmail:string = "";
   staffMemebr:any
-
+  @ViewChild(AddStaffMemberComponent) addUserModal!: AddStaffMemberComponent;
   constructor(protected ResService: RestaurantAppServiceService){
     var loginUser =  localStorage.getItem("LoginUserEmail")
     this.loginUserEmail = loginUser ? loginUser : "";
@@ -27,6 +27,7 @@ export class RestaurantDashboardComponent {
   }
   
   OpenStaffMemberModel() {
-    
+    console.log("*************")
+    this.addUserModal.openModal();
   }
 }
