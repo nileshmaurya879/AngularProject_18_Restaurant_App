@@ -25,7 +25,8 @@
       @if(loginUserEmail != ""){
 
       <ul>
-        <li><a id="loginIdlogutAddMember" class="btn btn-danger" (click)="OpenStaffMemberModel()">Add Member Staff</a></li>
+        <li><a id="loginIdlogutAddMember" class="btn btn-danger" (click)="OpenStaffMemberModel()">Add Member Staff</a>
+        </li>
         <li><a id="loginIdlogut" class="btn btn-danger" routerLink="/login">Logout</a></li>
       </ul>
 
@@ -42,36 +43,41 @@
 
   @if(loginUserEmail != "")
   {
-    <div class="section flex" id="hero-section">
+  <div class="section flex" id="hero-section">
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Member Name</th>
-            <th scope="col">Mobile No.</th>
-            <th scope="col">Staff Adress</th>
-            <th scope="col">Member Service</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (item of staffMemebr; track item) {
-            <tr>
-              <th>{{item.id}}</th>
-              <td>{{item.memberName}}</td>
-              <td>{{item.mobile}}</td>
-              <td>{{item.staffAddress}}</td>
-              <td>{{item.memberServices}}</td>
-              <td>{{item.salary}}</td>
-              <td>TODO</td>
-            </tr>
-          }
-         
-        </tbody>
-      </table>
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Member Name</th>
+          <th scope="col">Mobile No.</th>
+          <th scope="col">Staff Adress</th>
+          <th scope="col">Member Service</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of staffMemebr; track item) {
+        <tr>
+          <th>{{item.id}}</th>
+          <td>{{item.memberName}}</td>
+          <td>{{item.mobile}}</td>
+          <td>{{item.staffAddress}}</td>
+          <td>{{item.memberServices}}</td>
+          <td>{{item.salary}}</td>
+          <td>
+            <div id="btnDeletAndUpdate">
+              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-secondary">Update</button>
+            </div>
+          </td>
+        </tr>
+        }
+
+      </tbody>
+    </table>
+  </div>
   }
   @else
   {
@@ -80,7 +86,7 @@
   <div class="section flex" id="hero-section">
     <div class="text">
 
-      
+
       <h1 class="primary">
         It's Not Just Food, <br />
         It's an <span>Experience</span>

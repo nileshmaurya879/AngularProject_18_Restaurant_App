@@ -1,18 +1,4 @@
-<!-- <div *ngIf="showModal" class="modal-overlay">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5>Add Member Staff</h5>
-      <button (click)="closeModal()">X</button>
-    </div>
-    <div class="modal-body">
-      <label>Enter Name:</label>
-      <input type="text" placeholder="Enter Name">
-      <button (click)="closeModal()">Save</button>
-    </div>
-  </div>
-</div> -->
-
-<div *ngIf="showModal" class="modal fade show d-block" tabindex="-1">
+<div [formGroup]="openModel"  *ngIf="showModal" class="modal fade show d-block" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,12 +6,27 @@
         <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <label>Enter Name:</label>
-        <input type="text" class="form-control" placeholder="Enter Name">
+        <label>Name:</label>
+        <input type="text" class="form-control" placeholder=""  formControlName="name" >
+
+        <label>Mobile No:</label>
+        <input type="number" class="form-control" placeholder="">
+
+       
+        <label>Member Service:</label>
+        <input type="text" class="form-control" placeholder="">
+
+        <label>Member Salary:</label>
+        <input type="number" class="form-control" placeholder="">
+
+        <label>Address:</label>
+        <textarea type="text" class="form-control" placeholder="" ></textarea>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary" (click)="addStaffMember()">Save</button>
       </div>
     </div>
   </div>
