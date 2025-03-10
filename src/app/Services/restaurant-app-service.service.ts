@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
+import { StaffMember } from '../Model/staff-member';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,11 @@ export class RestaurantAppServiceService {
 
   GetAllStaffMember(){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.http.get('https://localhost:44323/api/StaffMember')
+    return this.http.get<StaffMember[]>('https://localhost:44323/api/StaffMember')
   }
+
+  // addStaffMember(){
+  //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  //   return this.http.post("https://localhost:44323/api/UserRegistration", JSON.stringify(Userlogin), { headers })
+  // }
 }

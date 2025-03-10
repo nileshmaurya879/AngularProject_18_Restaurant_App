@@ -14,7 +14,11 @@ export class AddStaffMemberComponent {
   isOpen: boolean = false;
    
   openModel = new FormGroup({
-      name:new FormControl("")
+      name:new FormControl(""),
+      mobileNo: new FormControl(""),
+      memberService: new FormControl(""),
+      Salary:new FormControl(""),
+      Address:new FormControl("")
   });
   showModal: boolean = false;
 
