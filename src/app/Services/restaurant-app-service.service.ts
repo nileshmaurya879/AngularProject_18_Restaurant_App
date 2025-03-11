@@ -25,8 +25,8 @@ export class RestaurantAppServiceService {
     return this.http.get<StaffMember[]>('https://localhost:44323/api/StaffMember')
   }
 
-  // addStaffMember(){
-  //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  //   return this.http.post("https://localhost:44323/api/UserRegistration", JSON.stringify(Userlogin), { headers })
-  // }
+  addStaffMember(addStaffMember:StaffMember){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post("https://localhost:44323/api/StaffMember", JSON.stringify(addStaffMember), { headers })
+  }
 }
