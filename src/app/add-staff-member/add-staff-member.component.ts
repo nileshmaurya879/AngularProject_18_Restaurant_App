@@ -18,7 +18,6 @@ export class AddStaffMemberComponent {
 constructor(private service:RestaurantAppServiceService ){
 
 }
-
   openModel = new FormGroup({
       name:new FormControl(""),
       mobileNo: new FormControl(""),
@@ -26,9 +25,6 @@ constructor(private service:RestaurantAppServiceService ){
       Salary:new FormControl(""),
       Address:new FormControl("")
   });
-
- 
-
 
   showModal: boolean = false;
 
@@ -50,8 +46,11 @@ constructor(private service:RestaurantAppServiceService ){
     };
 
     console.log(this.openModel.value)
-    this.service.addStaffMember(addStaff).subscribe((res:any)=>{
+    this.service.addStaffMember(addStaff).subscribe((res?:any)=>{
       console.log(res)
-    })
+      if(res = true){
+          this.closeModal();
+      }
+    });
   }
 }
