@@ -22,13 +22,12 @@
       <label class="logo">Komal food lover</label>
 
 
-
-      <ul ngIf="loginUserEmail !== ''">
+      <ul *ngIf="loginUserEmail && loginUserEmail.trim()">
         <li><a id="loginIdlogutAddMember" class="btn btn-danger" (click)="OpenStaffMemberModel()">Add Member Staff</a>
         </li>
         <li><a id="loginIdlogut" class="btn btn-danger" routerLink="/login">Logout</a></li>
       </ul>
-      <ul ngIf="loginUserEmail === ''">
+      <ul *ngIf="loginUserEmail === ''">
         <li><a id="loginId" class="btn btn-primary" routerLink="login">Login</a></li>
       </ul>
 

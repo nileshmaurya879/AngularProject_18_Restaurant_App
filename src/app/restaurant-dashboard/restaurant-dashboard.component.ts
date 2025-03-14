@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { AddStaffMemberComponent } from '../add-staff-member/add-staff-member.component';
 import { RestaurantAppServiceService } from '../Services/restaurant-app-service.service';
 import { StaffMember } from '../Model/staff-member';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-restaurant-dashboard',
   standalone: true,
-  imports: [RouterLink, AddStaffMemberComponent],
+  imports: [RouterLink, AddStaffMemberComponent,CommonModule],
   templateUrl: './restaurant-dashboard.component.html',
   styleUrl: './restaurant-dashboard.component.css'
 })
@@ -19,7 +20,7 @@ export class RestaurantDashboardComponent {
     var loginUser =  localStorage.getItem("LoginUserEmail")
     this.loginUserEmail = loginUser ? loginUser : "";
     console.log(loginUser)
-    console.log(this.loginUserEmail)
+    console.log(this.loginUserEmail.trim())
 
     ResService.GetAllStaffMember().subscribe((res:StaffMember[])=>{
       this.staffMemebr = res;
