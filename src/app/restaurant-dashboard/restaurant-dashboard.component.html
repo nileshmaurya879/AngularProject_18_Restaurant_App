@@ -55,7 +55,7 @@
       <tbody>
         @for (item of staffMemebr; track item) {
         <tr>
-          <th>{{item.id}}</th>
+          <th>{{item.srNo}}</th>
           <td>{{item.memberName}}</td>
           <td>{{item.mobile}}</td>
           <td>{{item.staffAddress}}</td>
@@ -63,7 +63,7 @@
           <td>{{item.salary}}</td>
           <td>
             <div id="btnDeletAndUpdate">
-              <button type="button" class="btn btn-danger"  (click)="DeleteStaffMember()" >Delete</button>
+              <button type="button" class="btn btn-danger"  (click)="DeleteStaffMember(item.id??0)" >Delete</button>
               <button type="button" class="btn btn-secondary">Update</button>
             </div>
           </td>

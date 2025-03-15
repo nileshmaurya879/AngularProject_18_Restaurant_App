@@ -1,4 +1,5 @@
 export class StaffMember {
+    srNo?:number;
     id?:number;
     memberName: string= ''; 
     memberServices:string = '';

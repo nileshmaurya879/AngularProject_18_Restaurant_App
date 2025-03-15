@@ -29,4 +29,9 @@ export class RestaurantAppServiceService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post("https://localhost:44323/api/StaffMember", JSON.stringify(addStaffMember), { headers })
   }
+
+  deleteStaffMember(id:number){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.delete("https://localhost:44323/api/StaffMember?id="+id.toString(),{ headers })
+  }
 }

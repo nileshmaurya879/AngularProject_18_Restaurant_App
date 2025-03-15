@@ -37,7 +37,10 @@ export class RestaurantDashboardComponent {
     });
   }
 
-  DeleteStaffMember(){
-    console.log("deleted")
+  DeleteStaffMember(id:number){
+    this.ResService.deleteStaffMember(id).subscribe(()=>{
+      this.refreshStaffList();
+    })
+    console.log("deleted"+id.toString())
   }
 }
