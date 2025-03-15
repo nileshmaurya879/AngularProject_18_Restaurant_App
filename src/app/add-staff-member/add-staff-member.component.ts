@@ -18,7 +18,7 @@ export class AddStaffMemberComponent {
 
   @Output() staffAdded = new EventEmitter<void>();
 constructor(private service:RestaurantAppServiceService ){
-
+  console.log(this.showModal+"************")
 }
   openModel = new FormGroup({
       name:new FormControl(""),

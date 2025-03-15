@@ -63,7 +63,7 @@
           <td>{{item.salary}}</td>
           <td>
             <div id="btnDeletAndUpdate">
-              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-danger"  (click)="DeleteStaffMember()" >Delete</button>
               <button type="button" class="btn btn-secondary">Update</button>
             </div>
           </td>
@@ -374,9 +374,6 @@
   }
 
 
-  <app-add-staff-member (staffAdded)="refreshStaffList()"></app-add-staff-member>
-
-
   <!-- Footer -->
   <div class="footer">
     <div class="container flex">
@@ -429,7 +426,7 @@
       <p>Copyright &copy; 2022. All Rights Reserved.</p>
     </div>
   </div>
-  <app-add-staff-member></app-add-staff-member>
+  <app-add-staff-member (staffAdded)="refreshStaffList()"></app-add-staff-member>
   <!--   BTN   -->
   <a href="https://www.youtube.com/watch?v=G6jkqDqTYo0" class="youtube" target="__blank">
     <p>Watch Tutorial 🔥</p>

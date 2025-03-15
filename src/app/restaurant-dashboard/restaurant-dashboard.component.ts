@@ -36,4 +36,8 @@ export class RestaurantDashboardComponent {
       console.log("Staff list updated:", res);
     });
   }
+
+  DeleteStaffMember(){
+    console.log("deleted")
+  }
 }
