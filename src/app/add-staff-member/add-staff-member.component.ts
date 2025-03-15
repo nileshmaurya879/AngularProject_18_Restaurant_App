@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantAppServiceService } from '../Services/restaurant-app-service.service';
 import { StaffMember } from '../Model/staff-member';
@@ -15,6 +15,8 @@ import { StaffMember } from '../Model/staff-member';
 export class AddStaffMemberComponent {
   isOpen: boolean = false;
   addStaff?:StaffMember
+
+  @Output() staffAdded = new EventEmitter<void>();
 constructor(private service:RestaurantAppServiceService ){
 
 }
@@ -49,6 +51,7 @@ constructor(private service:RestaurantAppServiceService ){
     this.service.addStaffMember(addStaff).subscribe((res?:any)=>{
       console.log(res)
       if(res = true){
+        this.staffAdded.emit();
           this.closeModal();
       }
     });

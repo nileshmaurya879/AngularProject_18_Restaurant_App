@@ -16,20 +16,24 @@ export class RestaurantDashboardComponent {
   loginUserEmail:string = "";
   staffMemebr:StaffMember[] = [];
   @ViewChild(AddStaffMemberComponent) addUserModal!: AddStaffMemberComponent;
+
   constructor(protected ResService: RestaurantAppServiceService){
+
     var loginUser =  localStorage.getItem("LoginUserEmail")
     this.loginUserEmail = loginUser ? loginUser : "";
-    console.log(loginUser)
-    console.log(this.loginUserEmail.trim())
 
-    ResService.GetAllStaffMember().subscribe((res:StaffMember[])=>{
-      this.staffMemebr = res;
-      console.log(res)
-    })
+    this.refreshStaffList();
+
   }
   
   OpenStaffMemberModel() {
     console.log("*************")
     this.addUserModal.openModal();
+  }
+  refreshStaffList() {
+    this.ResService.GetAllStaffMember().subscribe((res: StaffMember[]) => {
+      this.staffMemebr = res;
+      console.log("Staff list updated:", res);
+    });
   }
 }
