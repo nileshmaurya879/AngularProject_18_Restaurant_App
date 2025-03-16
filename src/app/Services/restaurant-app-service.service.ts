@@ -34,4 +34,14 @@ export class RestaurantAppServiceService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.delete("https://localhost:44323/api/StaffMember?id="+id.toString(),{ headers })
   }
+  updateStaffMember(updateStafmember: StaffMember){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put("https://localhost:44323/api/StaffMember",JSON.stringify(updateStafmember) ,{ headers })
+  }
+
+  GetStaffMemberById(id:number){
+    const headers = new HttpHeaders({'Content-Type':'application/json'});
+    return this.http.get<StaffMember>('https://localhost:44323/api/StaffMember/GetStaffMemberById?id='+id.toString());
+  }
+
 }

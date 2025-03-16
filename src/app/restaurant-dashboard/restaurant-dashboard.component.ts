@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 export class RestaurantDashboardComponent {
   loginUserEmail:string = "";
   staffMemebr:StaffMember[] = [];
+  singlestaffMemebr:StaffMember = new StaffMember();
   @ViewChild(AddStaffMemberComponent) addUserModal!: AddStaffMemberComponent;
 
   constructor(protected ResService: RestaurantAppServiceService){
@@ -42,5 +43,13 @@ export class RestaurantDashboardComponent {
       this.refreshStaffList();
     })
     console.log("deleted"+id.toString())
+  }
+  OpenUpdateModel(id:number){
+    console.log("*************")
+    this.ResService.GetStaffMemberById(id).subscribe((res)=>{
+      this.singlestaffMemebr = res;
+      console.log(this.singlestaffMemebr)
+    })
+    this.addUserModal.openModal();
   }
 }
