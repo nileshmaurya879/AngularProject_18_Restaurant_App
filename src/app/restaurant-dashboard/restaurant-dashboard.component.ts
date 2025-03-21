@@ -48,7 +48,7 @@ export class RestaurantDashboardComponent {
     console.log("*************")
     this.ResService.GetStaffMemberById(id).subscribe((res)=>{
       this.singlestaffMemebr = res;
-      console.log(")))))))))"+this.singlestaffMemebr.memberName)
+      console.log(")))))))))"+this.singlestaffMemebr?.id)
       this.addUserModal.openModal(this.singlestaffMemebr);
     });
    

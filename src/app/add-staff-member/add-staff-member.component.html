@@ -26,7 +26,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-        <button type="button" class="btn btn-primary" (click)="addStaffMember()">Save</button>
+        <button type="button" class="btn btn-primary" (click)="id == 0 ? addStaffMember() : updateStaffMember()">
+            {{ id == 0 ? 'Save' : 'Update'}} 
+        </button>
       </div>
     </div>
   </div>

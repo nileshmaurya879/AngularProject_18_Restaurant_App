@@ -17,7 +17,10 @@ export class AddStaffMemberComponent {
   addStaff?:StaffMember
   updated?:StaffMember;
   @Output() staffAdded = new EventEmitter<void>();
+
+  id:number = 0;
 constructor(private service:RestaurantAppServiceService ){
+  this.id= 0;
   console.log(this.showModal+"************")
 }
   openModel = new FormGroup({
@@ -31,7 +34,7 @@ constructor(private service:RestaurantAppServiceService ){
   showModal: boolean = false;
 
   openModal(updatestaffmemeber: StaffMember) {
-    console.log("LLLLLLLLLl"+updatestaffmemeber.memberName)
+    this.id = updatestaffmemeber.id ?? 0;
     this.openModel.setValue({
       name: updatestaffmemeber.memberName,
       mobileNo: String(updatestaffmemeber.mobile),
@@ -39,8 +42,6 @@ constructor(private service:RestaurantAppServiceService ){
       Salary: String(updatestaffmemeber.salary),
       Address: updatestaffmemeber.staffAddress
   });
-    console.log("hell")
-    console.log(this.openModel)
     this.showModal = true;
   }
 
@@ -58,6 +59,28 @@ constructor(private service:RestaurantAppServiceService ){
 
     console.log(this.openModel.value)
     this.service.addStaffMember(addStaff).subscribe((res?:any)=>{
+      console.log(res)
+      if(res = true){
+        this.staffAdded.emit();
+          this.closeModal();
+      }
+    });
+  }
+
+
+
+  updateStaffMember(){
+    const addStaff:StaffMember = {
+      id: this.id,
+      memberName:this.openModel.value.name ?? '',
+      staffAddress:this.openModel.value.Address ?? '',
+      memberServices:this.openModel.value.memberService ?? '',
+      salary:Number(this.openModel.value.Salary) || 0,
+      mobile: Number(this.openModel.value.mobileNo) || 0 
+    };
+
+    console.log(this.openModel.value)
+    this.service.updateStaffMember(addStaff).subscribe((res?:any)=>{
       console.log(res)
       if(res = true){
         this.staffAdded.emit();
