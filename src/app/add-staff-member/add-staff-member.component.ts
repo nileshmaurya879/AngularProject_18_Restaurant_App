@@ -15,7 +15,7 @@ import { StaffMember } from '../Model/staff-member';
 export class AddStaffMemberComponent {
   isOpen: boolean = false;
   addStaff?:StaffMember
-
+  updated?:StaffMember;
   @Output() staffAdded = new EventEmitter<void>();
 constructor(private service:RestaurantAppServiceService ){
   console.log(this.showModal+"************")
@@ -30,8 +30,17 @@ constructor(private service:RestaurantAppServiceService ){
 
   showModal: boolean = false;
 
-  openModal() {
+  openModal(updatestaffmemeber: StaffMember) {
+    console.log("LLLLLLLLLl"+updatestaffmemeber.memberName)
+    this.openModel.setValue({
+      name: updatestaffmemeber.memberName,
+      mobileNo: String(updatestaffmemeber.mobile),
+      memberService: updatestaffmemeber.memberServices,
+      Salary: String(updatestaffmemeber.salary),
+      Address: updatestaffmemeber.staffAddress
+  });
     console.log("hell")
+    console.log(this.openModel)
     this.showModal = true;
   }
 

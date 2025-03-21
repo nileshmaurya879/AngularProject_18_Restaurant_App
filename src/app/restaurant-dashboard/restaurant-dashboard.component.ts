@@ -29,7 +29,7 @@ export class RestaurantDashboardComponent {
   
   OpenStaffMemberModel() {
     console.log("*************")
-    this.addUserModal.openModal();
+    this.addUserModal.openModal(this.singlestaffMemebr);
   }
   refreshStaffList() {
     this.ResService.GetAllStaffMember().subscribe((res: StaffMember[]) => {
@@ -48,8 +48,9 @@ export class RestaurantDashboardComponent {
     console.log("*************")
     this.ResService.GetStaffMemberById(id).subscribe((res)=>{
       this.singlestaffMemebr = res;
-      console.log(this.singlestaffMemebr)
-    })
-    this.addUserModal.openModal();
+      console.log(")))))))))"+this.singlestaffMemebr.memberName)
+      this.addUserModal.openModal(this.singlestaffMemebr);
+    });
+   
   }
 }
